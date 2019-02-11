@@ -29,7 +29,7 @@ ReactDOM.render(<Style/>,document.getElementById('root')); */
 //#4 value syntax   //every value in strings except for px (which is in number)
 
 //#5 import styles from another file
-import React from 'react';
+/* import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { color } from './colors';
@@ -50,11 +50,34 @@ class ComponentClass extends React.Component{
         );
     }
 }
-ReactDOM.render(<ComponentClass/>,document.getElementById('root'));
+ReactDOM.render(<ComponentClass/>,document.getElementById('root')); */
 
+//Separate Container Components(FoodsContainer) from Presentational Components  (Food)
 
+//container component
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+import {Food} from './food';
 
+const foods = {cooked:'rice',uncooked:'ice-cream'};
+
+class FoodsContainer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {food:"cooked"};
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+        let foodState = this.state.food === 'cooked' ? 'uncooked' : 'cooked';
+        this.setState({food:foodState});
+    }
+
+    render() {
+        return <Food foodType={this.state.food} foodName = {foods[this.state.food]} onClick={this.handleClick} />;
+    }
+}
+ReactDOM.render(<FoodsContainer />,document.querySelector('#root'));
 /*
 import registerServiceWorker from './registerServiceWorker';
 
