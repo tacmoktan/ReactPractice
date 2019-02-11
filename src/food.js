@@ -1,4 +1,7 @@
-import React from 'react';
+//# Separate Container component from Presentational component
+//presentational component
+
+/* import React from 'react';
 
 export class Food extends React.Component{
     render() {
@@ -10,4 +13,16 @@ export class Food extends React.Component{
             </div>
         );
     }
+} */
+
+//# stateless functional Component     (rewriting above code in stateless functional Component)
+import React from 'react';
+export const Food = (props) => {
+    return (
+        <div>
+            <h1>{props.foodName} </h1>
+            <h3>is {props.foodType} </h3>
+            <button onClick={props.onClick}> change {props.foodType} </button>
+        </div>
+    );
 }

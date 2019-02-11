@@ -1,4 +1,4 @@
-//Styles
+//# Styles
 
 //#1 inlineStyle
 /* import React from 'react';
@@ -52,9 +52,9 @@ class ComponentClass extends React.Component{
 }
 ReactDOM.render(<ComponentClass/>,document.getElementById('root')); */
 
-//Separate Container Components(FoodsContainer) from Presentational Components  (Food)
+//# Separate Container Components(FoodsContainer) from Presentational Components  (Food)
 
-//container component
+//container component    
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -78,6 +78,9 @@ class FoodsContainer extends React.Component{
     }
 }
 ReactDOM.render(<FoodsContainer />,document.querySelector('#root'));
+
+//# Stateless functional component (uncomment above component & check in food.js)
+
 /*
 import registerServiceWorker from './registerServiceWorker';
 
