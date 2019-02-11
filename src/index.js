@@ -55,7 +55,7 @@ ReactDOM.render(<ComponentClass/>,document.getElementById('root')); */
 //# Separate Container Components(FoodsContainer) from Presentational Components  (Food)
 
 //container component    
-import React from 'react';
+/* import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {Food} from './food';
@@ -77,10 +77,21 @@ class FoodsContainer extends React.Component{
         return <Food foodType={this.state.food} foodName = {foods[this.state.food]} onClick={this.handleClick} />;
     }
 }
-ReactDOM.render(<FoodsContainer />,document.querySelector('#root'));
+ReactDOM.render(<FoodsContainer />,document.querySelector('#root')); */
 
 //# Stateless functional component (uncomment above component & check in food.js)
 
+//# propTypes
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Food} from './food.js';
+class OrderFood extends React.Component{
+    render(){
+        return <Food foodType='momo' quantity={2} amount={200} />
+    }
+}
+
+ReactDOM.render(<OrderFood/>,document.querySelector('#root'));
 /*
 import registerServiceWorker from './registerServiceWorker';
 
