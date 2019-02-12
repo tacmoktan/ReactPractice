@@ -82,7 +82,7 @@ ReactDOM.render(<FoodsContainer />,document.querySelector('#root')); */
 //# Stateless functional component (uncomment above component & check in food.js)
 
 //# propTypes
-import React from 'react';
+/* import React from 'react';
 import ReactDOM from 'react-dom';
 import {Food} from './food.js';
 class OrderFood extends React.Component{
@@ -91,7 +91,54 @@ class OrderFood extends React.Component{
     }
 }
 
-ReactDOM.render(<OrderFood/>,document.querySelector('#root'));
+ReactDOM.render(<OrderFood/>,document.querySelector('#root')); */
+
+
+//# React Forms  (controlled Component)
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ReactForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {firstName:"",comment:""};
+        this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
+
+        this.handleSubmit =  this.handleSubmit.bind(this);
+    }
+
+    handleFirstNameChange(e) {
+        this.setState({firstName:e.target.value});
+    }
+    handleCommentChange(e) {
+        this.setState({comment:e.target.value});
+    }
+
+    handleSubmit(){
+        alert(`firstName:${this.state.firstName} comment:${this.state.comment}`);
+    }
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <div>
+                    First Name:
+                    <input type="text" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+                    {this.state.firstName}
+                </div>
+                <div>
+                    Comment
+                    <textarea value={this.state.comment} onChange={this.handleCommentChange}> </textarea>
+                    {this.state.comment}
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        );
+    }
+}
+ReactDOM.render(<ReactForm />,document.querySelector('#root'));
 /*
 import registerServiceWorker from './registerServiceWorker';
 
