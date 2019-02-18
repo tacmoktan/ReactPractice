@@ -30,7 +30,7 @@ ReactDOM.render(<ComponentClass />, document.querySelector('#root')); */
 
 //# Updating Lifecyle
 
-import React from 'react';
+/* import React from 'react';
 import ReactDOM from 'react-dom';
 
 class ComponentClass extends React.Component{
@@ -74,7 +74,25 @@ class ComponentClass extends React.Component{
 
 ReactDOM.render(<ComponentClass value="props incoming" />,document.querySelector('#root'));
 
-setTimeout(() => ReactDOM.render(<ComponentClass value="props incoming on 2nd render"/>,document.querySelector('#root')),3000);
+setTimeout(() => ReactDOM.render(<ComponentClass value="props incoming on 2nd render"/>,document.querySelector('#root')),3000); */
+
+//# Unmounting Life cycle  //not so good eg
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ComponentClass extends React.Component{
+    componentWillUnmount(){
+        console.log('unmount');
+        alert('before you close your tab make sure u read this msg');
+    }
+
+    render() {
+        return <h1> Its unmounting time </h1>;
+    }
+}
+
+ReactDOM.render(<ComponentClass />,document.querySelector('#root'));
+
 /*
 import registerServiceWorker from './registerServiceWorker';
 
